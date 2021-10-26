@@ -9,8 +9,9 @@ from supervisely_lib.io.fs import download
 
 
 def validate_csv_table(first_csv_row):
+    col_names_validate = [key.lower() for key in first_csv_row.keys()]
     col_names = [key for key in first_csv_row.keys()]
-    if any(image_url_name in g.possible_image_url_col_names for image_url_name in col_names) \
+    if any(image_url_name in g.possible_image_url_col_names for image_url_name in col_names_validate) \
             and any(product_id_name in g.possible_product_id_col_names for product_id_name in col_names):
         raise Exception("Required element is missing in the csv file")
     image_url_col_name = None
