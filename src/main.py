@@ -13,20 +13,17 @@ def import_csv_catalog(api: sly.Api, task_id, context, state, app_logger):
     with open(g.local_csv_path, "r") as catalog_csv:
         reader = csv.DictReader(catalog_csv, delimiter=g.DEFAULT_DELIMITER)
         reader = [row for row in reader]
-
-        if g.IMAGE_URL_COL_NAME not in reader[0].keys() and g.PRODUCT_ID_COL_NAME not in reader[0].keys():
-            raise Exception("Required element is missing in the csv file")
-
+        image_url_col_name, product_id_col_name = f.validate_csv_table(reader[0])
         progress = sly.Progress("Processing data from csv", len(reader))
         for batch in sly.batched(reader):
             image_paths = []
             image_names = []
             anns = []
             for row in batch:
-                if len(row[g.IMAGE_URL_COL_NAME]) == 0:
+                if len(row[image_url_col_name]) == 0:
                     continue
-                image_name, image_path = f.process_image_by_url(api, row[g.IMAGE_URL_COL_NAME], app_logger)
-                ann, project_meta = f.process_ann(row, project_meta, image_path)
+                image_name, image_path = f.process_image_by_url(api, row[image_url_col_name], app_logger)
+                ann, project_meta = f.process_ann(row, project_meta, image_path, image_url_col_name, product_id_col_name)
 
                 image_paths.append(image_path)
                 image_names.append(image_name)

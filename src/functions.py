@@ -8,6 +8,22 @@ from PIL import Image
 from supervisely_lib.io.fs import download
 
 
+def validate_csv_table(first_csv_row):
+    col_names = [key for key in first_csv_row.keys()]
+    if any(image_url_name in g.possible_image_url_col_names for image_url_name in col_names) \
+            and any(product_id_name in g.possible_product_id_col_names for product_id_name in col_names):
+        raise Exception("Required element is missing in the csv file")
+    image_url_col_name = None
+    product_id_col_name = None
+    for name in col_names:
+        if name.lower().startswith("image") and name.lower().endswith("url"):
+            image_url_col_name = name
+        if name.lower().startswith("product") and name.lower().endswith("id"):
+            product_id_col_name = name
+
+    return image_url_col_name, product_id_col_name
+
+
 def download_file_from_link(api, link, save_path, file_name, progress_message, app_logger):
     response = requests.head(link, allow_redirects=True)
     sizeb = int(response.headers.get('content-length', 0))
@@ -31,8 +47,8 @@ def process_image_by_url(api, image_url, app_logger):
     return image_name, image_path
 
 
-def process_ann(csv_row, project_meta, image_path):
-    product_id = csv_row[g.PRODUCT_ID_COL_NAME].strip()
+def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_id_col_name):
+    product_id = csv_row[product_id_col_name].strip()
     image_shape = get_image_size(image_path)
     product_id_tag_meta = sly.TagMeta(product_id, sly.TagValueType.NONE)
     project_meta = project_meta.add_tag_meta(product_id_tag_meta)
@@ -48,8 +64,8 @@ def process_ann(csv_row, project_meta, image_path):
         mask = np.asarray(im, dtype=np.bool)
 
     tag_info = csv_row
-    del tag_info[g.IMAGE_URL_COL_NAME]
-    del tag_info[g.PRODUCT_ID_COL_NAME]
+    del tag_info[image_url_col_name]
+    del tag_info[product_id_col_name]
 
     label = sly.Label(sly.Bitmap(mask), g.product_obj_class, product_id_tag_col, description=tag_info)
     ann = sly.Annotation((image_shape[0], image_shape[1]), [label])

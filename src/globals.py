@@ -16,9 +16,10 @@ storage_dir = my_app.data_dir
 local_csv_path = os.path.join(storage_dir, "catalog.csv")
 api.file.download(TEAM_ID, INPUT_FILE, local_csv_path)
 
-IMAGE_URL_COL_NAME = 'Image URL'
-PRODUCT_ID_COL_NAME = 'PRODUCT ID'
 DEFAULT_DELIMITER = ','
+
+possible_image_url_col_names = ["Image URL", "Image-URL", "IMage_url", "ImageURL"]
+possible_product_id_col_names = ["PRODUCT ID", "PRODUCt-ID", "PRODUCT_ID", "PRODUCTID"]
 
 img_dir = os.path.join(storage_dir, "img_dir")
 mask_dir = os.path.join(storage_dir, "mask_dir")
