@@ -1,0 +1,16 @@
+{
+  "name": "Import CSV Catalog",
+  "type": "app",
+  "categories": [
+    "Images"
+  ],
+  "description": "Creates project with images provided via links from csv file",
+  "docker_image": "supervisely/base-py-sdk:6.1.102",
+  "main_script": "src/main.py",
+  "task_location": "workspace_tasks",
+  "icon": "https://img.icons8.com/color/100/000000/crop--v1.png",
+  "icon_background": "#FFFFFF",
+  "context_menu": {
+    "target": ["files_file"]
+  }
+}
