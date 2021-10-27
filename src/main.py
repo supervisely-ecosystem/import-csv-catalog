@@ -7,7 +7,7 @@ import supervisely_lib as sly
 @g.my_app.callback("import-csv-catalog")
 @sly.timeit
 def import_csv_catalog(api: sly.Api, task_id, context, state, app_logger):
-    project = api.project.create(g.WORKSPACE_ID, "CATALOG_CSV", sly.ProjectType.IMAGES, change_name_if_conflict=True)
+    project = api.project.create(g.WORKSPACE_ID, g.project_name, sly.ProjectType.IMAGES, change_name_if_conflict=True)
     project_meta = sly.ProjectMeta(sly.ObjClassCollection([g.product_obj_class]))
     dataset = api.dataset.create(project.id, "ds0", change_name_if_conflict=True)
     with open(g.local_csv_path, "r") as catalog_csv:
@@ -22,7 +22,7 @@ def import_csv_catalog(api: sly.Api, task_id, context, state, app_logger):
             for row in batch:
                 if len(row[image_url_col_name]) == 0:
                     continue
-                success, image_name, image_path = f.process_image_by_url(api, row[image_url_col_name], app_logger)
+                success, image_name, image_path = f.process_image_by_url(row[image_url_col_name], app_logger)
                 if success is False:
                     continue
                 ann, project_meta = f.process_ann(row, project_meta, image_path, image_url_col_name, product_id_col_name)
