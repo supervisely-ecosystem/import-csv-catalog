@@ -14,7 +14,7 @@ def import_csv_catalog(api: sly.Api, task_id, context, state, app_logger):
         reader = csv.DictReader(catalog_csv, delimiter=g.DEFAULT_DELIMITER)
         reader = [row for row in reader]
         image_url_col_name, product_id_col_name = f.validate_csv_table(reader[0])
-        progress = sly.Progress("Processing data from csv", len(reader))
+        progress = sly.Progress("processing CSV", len(reader))
         for batch in sly.batched(reader):
             image_paths = []
             image_names = []
