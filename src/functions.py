@@ -26,12 +26,17 @@ def validate_csv_table(first_csv_row):
 
 
 def download_file_from_link(api, link, save_path, file_name, progress_message, app_logger):
-    response = requests.head(link, allow_redirects=True)
-    sizeb = int(response.headers.get('content-length', 0))
-    progress_cb = download_progress.get_progress_cb(api, g.TASK_ID, progress_message, sizeb, is_size=True)
-    download(link, save_path, progress=progress_cb)
-    download_progress.reset_progress(api, g.TASK_ID)
-    app_logger.info(f'{file_name} has been successfully downloaded')
+    try:
+        response = requests.head(link, allow_redirects=True)
+        sizeb = int(response.headers.get('content-length', 0))
+        progress_cb = download_progress.get_progress_cb(api, g.TASK_ID, progress_message, sizeb, is_size=True)
+        download(link, save_path, progress=progress_cb)
+        download_progress.reset_progress(api, g.TASK_ID)
+        app_logger.info(f'{file_name} has been successfully downloaded')
+    except Exception as e:
+        sly.logger.warn(f"Could not download file {file_name}")
+        sly.logger.warn(e)
+
 
 
 def get_image_size(path_to_img):
@@ -45,7 +50,9 @@ def process_image_by_url(api, image_url, app_logger):
     image_name = os.path.basename(os.path.normpath(image_url)) + ".png"
     image_path = os.path.join(g.img_dir, image_name)
     download_file_from_link(api, image_url, image_path, image_name, f"Downloading {image_name}", app_logger)
-    return image_name, image_path
+    success = os.path.isfile(image_path)
+
+    return success, image_name, image_path
 
 
 def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_id_col_name):

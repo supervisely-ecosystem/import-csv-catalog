@@ -22,7 +22,9 @@ def import_csv_catalog(api: sly.Api, task_id, context, state, app_logger):
             for row in batch:
                 if len(row[image_url_col_name]) == 0:
                     continue
-                image_name, image_path = f.process_image_by_url(api, row[image_url_col_name], app_logger)
+                success, image_name, image_path = f.process_image_by_url(api, row[image_url_col_name], app_logger)
+                if success is False:
+                    continue
                 ann, project_meta = f.process_ann(row, project_meta, image_path, image_url_col_name, product_id_col_name)
 
                 image_paths.append(image_path)
