@@ -55,19 +55,22 @@ def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_i
     project_meta = project_meta.add_tag_meta(product_id_tag_meta)
     product_id_tag_col = sly.TagCollection([sly.Tag(product_id_tag_meta)])
 
-    if sly.image.read(image_path, False).shape[2] == 3:
-        mask = np.ones(image_shape, dtype=np.bool)
-    else:
-        im = Image.open(image_path)
-        mask_path = os.path.join(g.mask_dir, "mask.png")
-        im.convert('RGBA').split()[-1].save(mask_path, optimize=True)
-        im = Image.open(mask_path)
-        mask = np.asarray(im, dtype=np.bool)
+    # if sly.image.read(image_path, False).shape[2] == 3:  # uncomment to bitmap format
+    #     mask = np.ones(image_shape, dtype=np.bool)
+    # else:
+    #     im = Image.open(image_path)
+    #     mask_path = os.path.join(g.mask_dir, "mask.png")
+    #     im.convert('RGBA').split()[-1].save(mask_path, optimize=True)
+    #     im = Image.open(mask_path)
+    #     mask = np.asarray(im, dtype=np.bool)
+    # label = sly.Label(sly.Bitmap(mask), g.product_obj_class, product_id_tag_col, description=tag_info)
 
     tag_info = csv_row
     del tag_info[image_url_col_name]
     del tag_info[product_id_col_name]
 
-    label = sly.Label(sly.Bitmap(mask), g.product_obj_class, product_id_tag_col, description=tag_info)
+    label = sly.Label(sly.Rectangle(top=0, left=0, bottom=image_shape[0] - 1, right=image_shape[0] - 1),
+                      g.product_obj_class, product_id_tag_col, description=tag_info)
+
     ann = sly.Annotation((image_shape[0], image_shape[1]), [label])
     return ann, project_meta

@@ -27,4 +27,5 @@ mask_dir = os.path.join(storage_dir, "mask_dir")
 mkdir(img_dir)
 mkdir(mask_dir)
 
-product_obj_class = sly.ObjClass("product", sly.Bitmap)
+# product_obj_class = sly.ObjClass("product", sly.Bitmap)
+product_obj_class = sly.ObjClass("product", sly.Rectangle)
