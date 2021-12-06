@@ -28,6 +28,7 @@ Application key points:
 - Each product from the catalog will be assigned to class `product` with appropriate product id(number) tag
 - Product info will be stored in `object properties` -> `Data`
 
+Example [test csv catalog](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv)
 
 # How to Use
 1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
