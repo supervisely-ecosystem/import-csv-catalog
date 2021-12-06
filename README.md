@@ -27,8 +27,10 @@ Application key points:
 - Name of the `csv` file determines created project name
 - Each product from the catalog will be assigned to class `product` with appropriate product id(number) tag
 - Product info will be stored in `object properties` -> `Data`
+- Images names will be taken from Image URL
+- Required fields: **Image URL**, **PRODUCT ID**
 
-Example [test csv catalog](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv)
+Example [CSV catalog](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv)
 
 # How to Use
 1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
