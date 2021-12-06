@@ -24,27 +24,22 @@
 Application creates Supervisely images project from csv catalog
 
 Application key points:  
-- Supports only **instances.json** from **COCO** format
-- Polygons without holes are supported
-- Backward compatible with [Import COCO](https://github.com/supervisely-ecosystem/import-coco)
+- Name of the `csv` file determines created project name
+- Each product from the catalog will be assigned to class `product` with appropriate product id(number) tag
+- Product info will be stored in `object properties` -> `Data`
 
 
 # How to Use
 1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
 
-<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="https://imgur.com/OxqtYTS.png" width="350px" style='padding-bottom: 20px'/>  
+<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="" width="350px" style='padding-bottom: 20px'/>  
 
-2. Run app from the context menu of **Images Project**:
+2. Run app from the context menu of the 'csv' file:
 
-<img src="https://imgur.com/0JwLqYJ.png" width="100%"/>
+<img src="" width="100%"/>
 
 # Results
 
-After running the application, you will be redirected to the `Tasks` page. Once application processing has finished, your link for downloading will be available. Click on the `file name` to download it.
+After running the application, you will be redirected to the `Tasks` page. Once application processing has finished, your project will be available. Click on the project name to proceed to it.
 
-<img src="https://imgur.com/kK1wmN9.png"/>
-
-You can also find your converted project in   
-`Team Files` -> `Export to COCO` -> `<taskId>_<projectName>.tar`
-
-<img src="https://imgur.com/CovU9Re.png"/>
+<img src=""/>
