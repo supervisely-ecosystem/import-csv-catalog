@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://imgur.com/hJPOgeu.png"/>
+<img src=""/>
 
 
 # Import CSV catalog
