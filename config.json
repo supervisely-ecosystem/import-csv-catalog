@@ -4,7 +4,7 @@
   "categories": [
     "Images"
   ],
-  "description": "csv file to images project",
+  "description": "Turn CSV file with catalog to images project",
   "docker_image": "supervisely/base-py-sdk:6.1.102",
   "main_script": "src/main.py",
   "task_location": "workspace_tasks",
