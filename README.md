@@ -33,14 +33,14 @@ Example [test csv catalog](https://github.com/supervisely-ecosystem/import-csv-c
 # How to Use
 1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
 
-<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="" width="350px" style='padding-bottom: 20px'/>  
+<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="https://i.imgur.com/akcxVrR.png" width="350px" style='padding-bottom: 20px'/>  
 
-2. Run app from the context menu of the 'csv' file:
+2. Run app from the context menu of the `csv` file:
 
-<img src="" width="100%"/>
+<img src="https://i.imgur.com/8s9IREE.png" width="100%"/>
 
 # Results
 
 After running the application, you will be redirected to the `Tasks` page. Once application processing has finished, your project will be available. Click on the project name to proceed to it.
 
-<img src=""/>
+<img src="https://i.imgur.com/G4BOKH4.png"/>
