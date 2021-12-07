@@ -42,7 +42,8 @@ Application key points:
 
 # Results
 
-After running the application, you will be redirected to the `Tasks` page. Once application processing has finished, your project will be available.  
+After running the application, you will be redirected to the `Tasks` page.  
+Once application processing has finished, your project will be available.  
 Click on the project name to proceed to it.
 
 <img src="https://i.imgur.com/G4BOKH4.png"/>
