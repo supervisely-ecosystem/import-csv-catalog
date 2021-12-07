@@ -31,8 +31,6 @@ Application key points:
 - Additional fields will be stored in `object properties` -> `Data`
 
 
-[**.CSV catalog example**](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv)
-
 # How to Use
 1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
 
