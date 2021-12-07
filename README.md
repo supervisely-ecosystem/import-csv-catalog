@@ -25,7 +25,7 @@ Application converting **.CSV catalog** [**(example)**](https://github.com/super
 
 Application key points:  
 - .CSV required fields: **image_url**, **product_id**
-- .CSV delimetr is **comma**
+- .CSV delimeter is **comma**
 - Сan contain several rows for same **product_id**
 - Each images from the catalog will be labeled by class `product` with appropriate **product_id** tag
 - Additional fields will be stored in `object properties` -> `Data`
