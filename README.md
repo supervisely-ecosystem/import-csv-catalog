@@ -21,14 +21,15 @@
 
 # Overview
 
-Application creates Supervisely images project from csv catalog
+Application creates Supervisely images project from **.CSV catalog**
 
 Application key points:  
+- .CSV required fields: **Image URL**, **PRODUCT ID**
 - Name of the `csv` file determines created project name
-- Each product from the catalog will be assigned to class `product` with appropriate product id(number) tag
+- Each images from the catalog will be labeled by class `product` with appropriate **product_id** tag
 - Product info will be stored in `object properties` -> `Data`
 - Images names will be taken from Image URL
-- Required fields: **Image URL**, **PRODUCT ID**
+
 
 Example [CSV catalog](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv)
 
