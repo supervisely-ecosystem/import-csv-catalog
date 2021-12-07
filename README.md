@@ -21,7 +21,7 @@
 
 # Overview
 
-Application converting **.CSV catalog** [**(example)**](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv) to Supervisely Images Project
+Application converts **.CSV catalog** [**(example)**](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv) to Supervisely Images Project
 
 Application key points:  
 - .CSV required fields: **image_url**, **product_id**
