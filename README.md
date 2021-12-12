@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/hqtNXYg.jpg"/>
 
 
-# Import CSV catalog
+# CSV to Images Project
 
 <p align="center">
   <a href="#Overview">Overview</a> •
