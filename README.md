@@ -47,3 +47,8 @@ Once application processing has finished, your project will be available.
 Click on the project name to proceed to it.
 
 <img src="https://i.imgur.com/G4BOKH4.png"/>
+
+# Watch Tutorial Video
+<a data-key="sly-embeded-video-link" href="https://www.youtube.com/watch?v=CbE5l_ObuhQ" data-video-code="CbE5l_ObuhQ">
+    <img src="https://i.imgur.com/0fhnAB7.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
+</a>
