@@ -6,7 +6,8 @@
 
 <p align="center">
   <a href="#Overview">Overview</a> •
-  <a href="#How-To-Use">How To Use</a> •
+  <a href="#How-To-Run">How To Run</a> •
+  <a href="#Demo-Video">Demo Video</a> •
   <a href="#Results">Results</a>
 </p>
 
@@ -31,7 +32,7 @@ Application key points:
 - Additional fields will be stored in `object properties` -> `Data`
 
 
-# How to Use
+# How to Run
 1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
 
 <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="https://i.imgur.com/t1O1T52.png" width="350px" style='padding-bottom: 20px'/>  
@@ -39,6 +40,11 @@ Application key points:
 2. Run app from the context menu of the `.CSV` file:
 
 <img src="https://i.imgur.com/8s9IREE.png" width="100%"/>
+
+# Demo Video
+<a data-key="sly-embeded-video-link" href="https://www.youtube.com/watch?v=CbE5l_ObuhQ" data-video-code="CbE5l_ObuhQ">
+    <img src="https://i.imgur.com/0fhnAB7.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
+</a>
 
 # Results
 
@@ -48,7 +54,4 @@ Click on the project name to proceed to it.
 
 <img src="https://i.imgur.com/G4BOKH4.png"/>
 
-# Watch Tutorial Video
-<a data-key="sly-embeded-video-link" href="https://www.youtube.com/watch?v=CbE5l_ObuhQ" data-video-code="CbE5l_ObuhQ">
-    <img src="https://i.imgur.com/0fhnAB7.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
-</a>
+
