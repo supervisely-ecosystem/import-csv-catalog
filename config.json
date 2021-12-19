@@ -1,14 +1,15 @@
 {
-  "name": "CSV To Images Project",
+  "name": "CSV to Images Project",
   "type": "app",
   "categories": [
     "Images"
   ],
-  "description": "Turn CSV file with catalog to images project",
+  "description": "Convert .CSV catalog to Images Project",
   "docker_image": "supervisely/base-py-sdk:6.1.102",
   "main_script": "src/main.py",
   "task_location": "workspace_tasks",
   "icon": "https://i.imgur.com/D8ffaAT.png",
+  "icon_cover": true,
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": ["files_file"]
