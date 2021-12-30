@@ -8,6 +8,7 @@
   <a href="#Overview">Overview</a> •
   <a href="#How-To-Run">How To Run</a> •
   <a href="#Demo-Video">Demo Video</a> •
+    <a href="#Demo-Data">Demo Data</a> •
   <a href="#Results">Results</a>
 </p>
 
@@ -40,6 +41,11 @@ Application key points:
 2. Run app from the context menu of the `.CSV` file:
 
 <img src="https://i.imgur.com/8s9IREE.png" width="100%"/>
+
+
+# Demo Data
+
+- [.CSV table to import example](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v0.0.1/test_snacks_catalog.csv) — table example
 
 # Demo Video
 <a data-key="sly-embeded-video-link" href="https://www.youtube.com/watch?v=CbE5l_ObuhQ" data-video-code="CbE5l_ObuhQ">
