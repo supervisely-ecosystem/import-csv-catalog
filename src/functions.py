@@ -60,8 +60,13 @@ def process_image_by_url(image_url, app_logger):
 def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_id_col_name):
     product_id = csv_row[product_id_col_name].strip()
     image_shape = get_image_size(image_path)
+
     product_id_tag_meta = sly.TagMeta(product_id, sly.TagValueType.NONE)
-    project_meta = project_meta.add_tag_meta(product_id_tag_meta)
+    try:
+        project_meta = project_meta.add_tag_meta(product_id_tag_meta)
+    except:
+        pass
+
     product_id_tag_col = sly.TagCollection([sly.Tag(product_id_tag_meta)])
 
     # if sly.image.read(image_path, False).shape[2] == 3:  # uncomment to bitmap format
