@@ -34,7 +34,7 @@ Application key points:
 
 
 # How to Run
-1. Add [Import CSV catalog](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
+1. Add [CSV Products Catalog to Images Project](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
 
 <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="https://i.imgur.com/t1O1T52.png" width="350px" style='padding-bottom: 20px'/>  
 
