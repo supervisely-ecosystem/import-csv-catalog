@@ -20,11 +20,14 @@ def import_csv_catalog(api: sly.Api, task_id, context, state, app_logger):
             image_names = []
             anns = []
             for row in batch:
-                if len(row[image_url_col_name]) == 0:
-                    continue
-                success, image_name, image_path = f.process_image_by_url(row[image_url_col_name], app_logger)
-                if success is False:
-                    continue
+                # if len(row[image_url_col_name]) == 0:
+                #     continue
+
+                try:
+                    image_name, image_path = f.get_image(row[image_url_col_name])
+                except Exception as ex:
+                    sly.logger.warn(f'{ex}')
+
                 ann, project_meta = f.process_ann(row, project_meta, image_path, image_url_col_name, product_id_col_name)
 
                 image_paths.append(image_path)

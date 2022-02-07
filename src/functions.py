@@ -1,4 +1,7 @@
 import os
+import time
+
+import cv2
 import numpy as np
 import globals as g
 import supervisely_lib as sly
@@ -32,10 +35,10 @@ def validate_csv_table(first_csv_row):
     return image_url_col_name, product_id_col_name
 
 
-def download_file_from_link(link, save_path, file_name, app_logger):
+def download_file_from_link(link, save_path, file_name):
     try:
         download(link, save_path)
-        app_logger.info(f'{file_name} has been successfully downloaded')
+        sly.logger.info(f'{file_name} has been successfully downloaded')
     except Exception as e:
         sly.logger.warn(f"Could not download file {file_name}")
         sly.logger.warn(e)
@@ -47,14 +50,27 @@ def get_image_size(path_to_img):
     return h, w
 
 
-def process_image_by_url(image_url, app_logger):
-    image_url = image_url.strip()
-    image_name = os.path.basename(os.path.normpath(image_url)) + ".png"
-    image_path = os.path.join(g.img_dir, image_name)
-    download_file_from_link(image_url, image_path, image_name, app_logger)
-    success = os.path.isfile(image_path)
+def get_free_image_name():
+    image_name = f'{time.time_ns()}' + ".png"
 
-    return success, image_name, image_path
+    while os.path.isfile(os.path.join(g.img_dir, image_name)):
+        image_name = f'{time.time_ns()}' + ".png"
+
+    return image_name
+
+
+def get_image(image_url):
+    image_url = image_url.strip()
+    if len(image_url) > 0:  # if product has URL
+        image_name = os.path.basename(os.path.normpath(image_url)) + ".png"
+        image_path = os.path.join(g.img_dir, image_name)
+        download_file_from_link(image_url, image_path, image_name)
+    else:
+        image_name = get_free_image_name()
+        image_path = os.path.join(g.img_dir, image_name)
+        blank_image = np.zeros((1, 1, 3), np.uint8)
+        cv2.imwrite(image_path, blank_image)
+    return image_name, image_path
 
 
 def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_id_col_name):
