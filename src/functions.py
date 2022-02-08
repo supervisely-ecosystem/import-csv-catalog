@@ -99,7 +99,7 @@ def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_i
     del tag_info[image_url_col_name]
     del tag_info[product_id_col_name]
 
-    label = sly.Label(sly.Rectangle(top=0, left=0, bottom=image_shape[0] - 1, right=image_shape[1] - 1),
+    label = sly.Label(sly.Rectangle.from_size(image_shape),
                       g.product_obj_class, product_id_tag_col, description=tag_info)
 
     ann = sly.Annotation((image_shape[0], image_shape[1]), [label])
