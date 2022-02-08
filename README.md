@@ -31,6 +31,7 @@ Application key points:
 - Сan contain several rows for same **product_id**
 - Each images from the catalog will be labeled by class `product` with appropriate **product_id** tag
 - Additional fields will be stored in `object properties` -> `Data`
+- Can upload products without URL ([example](https://github.com/supervisely-ecosystem/import-csv-catalog/releases/download/v1.0.7/without_URL_example.csv)) 
 
 
 # How to Run
