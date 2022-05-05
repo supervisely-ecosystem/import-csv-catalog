@@ -12,6 +12,9 @@
   "icon_cover": false,
   "icon_background": "#FFFFFF",
   "context_menu": {
-    "target": ["files_file"]
-  }
+    "target": [
+      "files_file"
+    ]
+  },
+  "poster": "https://imgur.com/7cEkX6w.jpg"
 }
