@@ -2,6 +2,7 @@ import csv
 import globals as g
 import functions as f
 import supervisely_lib as sly
+from supervisely.io.fs import get_file_name, get_file_ext
 
 
 project = g.api.project.create(
@@ -10,7 +11,7 @@ project = g.api.project.create(
 project_meta = sly.ProjectMeta(sly.ObjClassCollection([g.product_obj_class]))
 dataset = g.api.dataset.create(project.id, "ds0", change_name_if_conflict=True)
 unique_image_names = []
-image_name_prefix = "1_"
+image_name_suffix = "_copy"
 with open(g.local_csv_path, "r") as catalog_csv:
     reader = csv.DictReader(catalog_csv, delimiter=g.DEFAULT_DELIMITER)
     reader = [row for row in reader]
@@ -39,7 +40,9 @@ with open(g.local_csv_path, "r") as catalog_csv:
                 unique_image_names.append(image_name)
                 image_names.append(image_name)
             else:
-                new_image_name = image_name_prefix + image_name
+                new_image_name = (
+                    get_file_name(image_name) + image_name_suffix + get_file_ext(image_name)
+                )
                 sly.logger.warn(
                     f"Image with name {image_name} already exist in input data, will be repaleced with {new_image_name} name."
                 )

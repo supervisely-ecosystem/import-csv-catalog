@@ -5,3 +5,4 @@ venv
 .venv
 .vscode
 src/__pycache__
+supervisely
