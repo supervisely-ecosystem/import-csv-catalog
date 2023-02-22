@@ -45,7 +45,30 @@ def validate_csv_table(first_csv_row):
 
 def download_file_from_link(link, save_path, file_name):
     try:
-        download(link, save_path)
+        # headers = {
+        #     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        #     "Accept-Encoding": "gzip, deflate, br",
+        #     "Accept-Language": "en-US,en;q=0.9",
+        #     "Cache-Control": "max-age=0",
+        #     "Connection": "keep-alive",
+        #     "sec-ch-ua-platform": "Linux",
+        #     "Sec-Fetch-Dest": "document",
+        #     "Sec-Fetch-Mode": "navigate",
+        #     "Sec-Fetch-Site": "none",
+        #     "Upgrade-Insecure-Requests": "1",
+        #     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+        # }
+
+        # headers = {
+        #     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)",
+        #     "Cache-Control": "private, no-transform, max-age=43200",
+        #     "Connection": "keep-alive",
+        # }
+
+        headers = {
+            "User-Agent": "Mozilla/5.0",
+        }
+        download(link, save_path, headers=headers)
         sly.logger.info(f"{file_name} has been successfully downloaded")
     except Exception as e:
         sly.logger.warn(f"Could not download file {file_name}")
