@@ -4,3 +4,4 @@ venv
 /src/debug
 .venv
 .vscode
+__pycache__
