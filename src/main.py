@@ -40,6 +40,9 @@ with open(g.local_csv_path, "r") as catalog_csv:
                 image_names.append(image_name)
             else:
                 new_image_name = image_name_prefix + image_name
+                sly.logger.warn(
+                    f"Image with name {image_name} already exist in input data, will be repaleced with {new_image_name} name."
+                )
                 unique_image_names.append(new_image_name)
                 image_names.append(new_image_name)
             anns.append(ann)
