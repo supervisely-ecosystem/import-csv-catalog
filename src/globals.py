@@ -1,23 +1,28 @@
 import os
 import supervisely_lib as sly
-from supervisely_lib.io.fs import mkdir, get_file_name
+from supervisely.io.fs import mkdir, get_file_name
 
 
-my_app = sly.AppService()
-api: sly.Api = my_app.public_api
+from dotenv import load_dotenv
 
-TASK_ID = int(os.environ["TASK_ID"])
-TEAM_ID = int(os.environ['context.teamId'])
-WORKSPACE_ID = int(os.environ['context.workspaceId'])
+
+load_dotenv("local.env")
+load_dotenv(os.path.expanduser("~/supervisely.env"))
+
+
+api = sly.Api.from_env()
+TEAM_ID = sly.env.team_id()
+WORKSPACE_ID = sly.env.workspace_id()
+
 INPUT_FILE = os.environ["modal.state.slyFile"]
 
 project_name = get_file_name(INPUT_FILE)
 
-storage_dir = my_app.data_dir
+storage_dir = sly.app.get_data_dir()
 local_csv_path = os.path.join(storage_dir, "catalog.csv")
 api.file.download(TEAM_ID, INPUT_FILE, local_csv_path)
 
-DEFAULT_DELIMITER = ','
+DEFAULT_DELIMITER = ","
 
 possible_image_url_col_names = ["image url", "image-url", "image_url", "imageurl"]
 possible_product_id_col_names = ["product id", "product-id", "product_id", "productid"]
