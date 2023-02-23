@@ -8,6 +8,7 @@
   "task_location": "workspace_tasks",
   "icon": "https://i.imgur.com/D8ffaAT.png",
   "icon_cover": false,
+  "headless": true,
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": ["files_file"]

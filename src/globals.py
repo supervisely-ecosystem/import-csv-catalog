@@ -1,16 +1,16 @@
 import os
+
 import supervisely_lib as sly
-from supervisely.io.fs import mkdir, get_file_name
-
-
 from dotenv import load_dotenv
+from supervisely.io.fs import get_file_name, mkdir
 
-
-load_dotenv("local.env")
-load_dotenv(os.path.expanduser("~/supervisely.env"))
+if sly.is_development():
+    load_dotenv("local.env")
+    load_dotenv(os.path.expanduser("~/supervisely.env"))
 
 
 api = sly.Api.from_env()
+
 TEAM_ID = sly.env.team_id()
 WORKSPACE_ID = sly.env.workspace_id()
 

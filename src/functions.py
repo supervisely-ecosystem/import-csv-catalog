@@ -3,10 +3,11 @@ import time
 
 import cv2
 import numpy as np
-import globals as g
 import supervisely_lib as sly
 from PIL import Image
 from supervisely.io.fs import download
+
+import globals as g
 
 
 def check_column_names(col_names_validate):

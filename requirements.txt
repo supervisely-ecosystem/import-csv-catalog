@@ -1,1 +1,7 @@
 supervisely==6.69.59
+
+# formatter
+black
+
+# sorter
+isort

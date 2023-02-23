@@ -1,9 +1,10 @@
 import csv
-import globals as g
-import functions as f
-import supervisely_lib as sly
-from supervisely.io.fs import get_file_name, get_file_ext
 
+import supervisely_lib as sly
+from supervisely.io.fs import get_file_ext, get_file_name
+
+import functions as f
+import globals as g
 
 project = g.api.project.create(
     g.WORKSPACE_ID, g.project_name, sly.ProjectType.IMAGES, change_name_if_conflict=True
