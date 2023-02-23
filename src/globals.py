@@ -1,6 +1,6 @@
 import os
 
-import supervisely_lib as sly
+import supervisely as sly
 from dotenv import load_dotenv
 from supervisely.io.fs import get_file_name, mkdir
 

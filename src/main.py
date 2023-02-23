@@ -1,6 +1,6 @@
 import csv
 
-import supervisely_lib as sly
+import supervisely as sly
 from supervisely.io.fs import get_file_ext, get_file_name
 
 import functions as f
