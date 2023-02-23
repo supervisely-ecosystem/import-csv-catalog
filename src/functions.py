@@ -69,7 +69,7 @@ def download_file_from_link(link, save_path, file_name):
         headers = {
             "User-Agent": "Mozilla/5.0",
         }
-        download(link, save_path, headers=headers, timeout=10)
+        download(url=link, save_path=save_path, headers=headers, timeout=10)
         sly.logger.info(f"{file_name} has been successfully downloaded")
     except Exception as e:
         sly.logger.warn(f"Could not download file {file_name}")
