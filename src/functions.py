@@ -3,19 +3,28 @@ import time
 
 import cv2
 import numpy as np
-import globals as g
-import supervisely_lib as sly
+import supervisely as sly
 from PIL import Image
-from supervisely_lib.io.fs import download
+from supervisely.io.fs import download
+
+import globals as g
 
 
 def check_column_names(col_names_validate):
-    if not any(image_url_name in g.possible_image_url_col_names for image_url_name in col_names_validate):
-        raise Exception("IMAGE URL COLUMN NAME IS INVALID, PLEASE USE ONE OF:\n"
-                        f"{g.possible_image_url_col_names}")
-    if not any(product_id_name in g.possible_product_id_col_names for product_id_name in col_names_validate):
-        raise Exception("PRODUCT ID COLUMN NAME IS INVALID, PLEASE USE ONE OF:\n"
-                        f"{g.possible_product_id_col_names}")
+    if not any(
+        image_url_name in g.possible_image_url_col_names for image_url_name in col_names_validate
+    ):
+        raise Exception(
+            "IMAGE URL COLUMN NAME IS INVALID, PLEASE USE ONE OF:\n"
+            f"{g.possible_image_url_col_names}"
+        )
+    if not any(
+        product_id_name in g.possible_product_id_col_names for product_id_name in col_names_validate
+    ):
+        raise Exception(
+            "PRODUCT ID COLUMN NAME IS INVALID, PLEASE USE ONE OF:\n"
+            f"{g.possible_product_id_col_names}"
+        )
 
 
 def validate_csv_table(first_csv_row):
@@ -37,11 +46,34 @@ def validate_csv_table(first_csv_row):
 
 def download_file_from_link(link, save_path, file_name):
     try:
-        download(link, save_path)
-        sly.logger.info(f'{file_name} has been successfully downloaded')
+        # headers = {
+        #     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        #     "Accept-Encoding": "gzip, deflate, br",
+        #     "Accept-Language": "en-US,en;q=0.9",
+        #     "Cache-Control": "max-age=0",
+        #     "Connection": "keep-alive",
+        #     "sec-ch-ua-platform": "Linux",
+        #     "Sec-Fetch-Dest": "document",
+        #     "Sec-Fetch-Mode": "navigate",
+        #     "Sec-Fetch-Site": "none",
+        #     "Upgrade-Insecure-Requests": "1",
+        #     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+        # }
+
+        # headers = {
+        #     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)",
+        #     "Cache-Control": "private, no-transform, max-age=43200",
+        #     "Connection": "keep-alive",
+        # }
+
+        headers = {
+            "User-Agent": "Mozilla/5.0",
+        }
+        download(url=link, save_path=save_path, headers=headers, timeout=10)
+        sly.logger.info(f"{file_name} has been successfully downloaded")
     except Exception as e:
         sly.logger.warn(f"Could not download file {file_name}")
-        sly.logger.warn(e)
+        raise e
 
 
 def get_image_size(path_to_img):
@@ -51,10 +83,10 @@ def get_image_size(path_to_img):
 
 
 def get_free_image_name():
-    image_name = f'{time.time_ns()}' + ".png"
+    image_name = f"{time.time_ns()}.png"
 
     while os.path.isfile(os.path.join(g.img_dir, image_name)):
-        image_name = f'{time.time_ns()}' + ".png"
+        image_name = f"{time.time_ns()}.png"
 
     return image_name
 
@@ -62,7 +94,7 @@ def get_free_image_name():
 def get_image(image_url):
     image_url = image_url.strip()
     if len(image_url) > 0:  # if product has URL
-        image_name = os.path.basename(os.path.normpath(image_url)) + ".png"
+        image_name = f"{os.path.basename(os.path.normpath(image_url))}.png"
         image_path = os.path.join(g.img_dir, image_name)
         download_file_from_link(image_url, image_path, image_name)
     else:
@@ -99,8 +131,12 @@ def process_ann(csv_row, project_meta, image_path, image_url_col_name, product_i
     del tag_info[image_url_col_name]
     del tag_info[product_id_col_name]
 
-    label = sly.Label(sly.Rectangle.from_size(image_shape),
-                      g.product_obj_class, product_id_tag_col, description=tag_info)
+    label = sly.Label(
+        sly.Rectangle.from_size(image_shape),
+        g.product_obj_class,
+        product_id_tag_col,
+        description=tag_info,
+    )
 
     ann = sly.Annotation((image_shape[0], image_shape[1]), [label])
     return ann, project_meta
