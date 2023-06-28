@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://imgur.com/7cEkX6w.jpg"/>
+<img src="media/p.jpeg"/>
 
 
 # CSV Products Catalog to Images Project
