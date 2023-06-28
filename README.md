@@ -36,11 +36,11 @@ Application key points:
 # How to Run
 1. Add [CSV Products Catalog to Images Project](https://ecosystem.supervise.ly/apps/import-csv-catalog) to your team from Ecosystem.
 
-<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="https://imgur.com/NxeAATL.png" width="350px" style='padding-bottom: 20px'/>  
+<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="media/htr1.png" width="350px" style='padding-bottom: 20px'/>  
 
 2. Run app from the context menu of the `.CSV` file:
 
-<img src="https://i.imgur.com/8s9IREE.png" width="100%"/>
+<img src="media/htr2.png" width="100%"/>
 
 
 # Demo Data
@@ -49,7 +49,7 @@ Application key points:
 
 # Demo Video
 <a data-key="sly-embeded-video-link" href="https://www.youtube.com/watch?v=CbE5l_ObuhQ" data-video-code="CbE5l_ObuhQ">
-    <img src="https://i.imgur.com/0fhnAB7.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
+    <img src="media/dv.png" alt="SLY_EMBEDED_VIDEO_LINK"  width="70%">
 </a>
 
 # Results
@@ -58,6 +58,6 @@ After running the application, you will be redirected to the `Tasks` page.
 Once application processing has finished, your project will be available.  
 Click on the project name to proceed to it.
 
-<img src="https://i.imgur.com/G4BOKH4.png"/>
+<img src="media/r.png"/>
 
 
