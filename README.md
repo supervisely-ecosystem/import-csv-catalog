@@ -12,7 +12,7 @@
   <a href="#Results">Results</a>
 </p>
 
-[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](../../../../supervisely-ecosystem/import-csv-catalog)
+[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervisely.com/apps/supervisely-ecosystem/import-csv-catalog)
 [![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervisely.com/slack)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/supervisely-ecosystem/import-csv-catalog)
 [![views](https://app.supervisely.com/img/badges/views/supervisely-ecosystem/import-csv-catalog.png)](https://supervisely.com)
@@ -34,7 +34,7 @@ Application key points:
 
 
 # How to Run
-1. Add [CSV Products Catalog to Images Project](../../../../supervisely-ecosystem/import-csv-catalog) to your team from Ecosystem.
+1. Add [CSV Products Catalog to Images Project](https://ecosystem.supervisely.com/apps/import-csv-catalog) to your team from Ecosystem.
 
 <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/import-csv-catalog" src="https://imgur.com/NxeAATL.png" width="350px" style='padding-bottom: 20px'/>  
 
