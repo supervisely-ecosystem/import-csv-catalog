@@ -1,12 +1,13 @@
 {
     "name": "CSV Products Catalog to Images Project",
     "type": "app",
+    "instance_version": "6.15.60",
     "categories": [
         "import",
         "images"
     ],
     "description": "Convert .CSV catalog to Images Project",
-    "docker_image": "supervisely/import-export:0.0.5",
+    "docker_image": "supervisely/import-export:6.73.564",
     "main_script": "src/main.py",
     "task_location": "workspace_tasks",
     "icon": "https://i.imgur.com/D8ffaAT.png",
