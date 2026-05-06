@@ -1,6 +1,7 @@
 {
     "name": "CSV Products Catalog to Images Project",
     "type": "app",
+    "instance_version": "6.15.60",
     "categories": [
         "import",
         "images"
